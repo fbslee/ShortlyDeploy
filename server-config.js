@@ -4,10 +4,12 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var util = require('./lib/utility');
+require('./app/config.js');
 
-var handler = require('./lib/request-handler');
+// var handler = require('./lib/request-handler');
 
 var app = express();
+var handler = require('./lib/request-handler');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
