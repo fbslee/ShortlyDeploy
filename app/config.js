@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/short');
+mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds145848.mlab.com:45848/noconlee');
 
 
 var db = mongoose.connection;
