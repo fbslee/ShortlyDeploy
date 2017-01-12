@@ -1,32 +1,36 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/shortly');
+mongoose.connect('mongodb://localhost:27017/short');
 
 
 var db = mongoose.connection;
 
+db.on('connected', function() {
+  console.log('connected to db');
+});
+
 db.on('error', console.error.bind(console, 'connection error:'));
 
-process.on('SIGINT', function() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected on app termination');
-    process.exit(0);
-  });
-});
+// process.on('SIGINT', function() {
+//   mongoose.connection.close(function () {
+//     console.log('Mongoose disconnected on app termination');
+//     process.exit(0);
+//   });
+// });
 
-process.on('SIGTERM', function() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected on app termination');
-    process.exit(0);
-  });
-});
+// process.on('SIGTERM', function() {
+//   mongoose.connection.close(function () {
+//     console.log('Mongoose disconnected on app termination');
+//     process.exit(0);
+//   });
+// });
 
-process.on('SIGUSR2', function() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose disconnected on app termination');
-    process.exit(0);
-  });
-});
+// process.on('SIGUSR2', function() {
+//   mongoose.connection.close(function () {
+//     console.log('Mongoose disconnected on app termination');
+//     process.exit(0);
+//   });
+// });
 
 require('./models/link.js');
 require('./models/user.js');

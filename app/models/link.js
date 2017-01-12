@@ -11,8 +11,13 @@ var linkSchema = new mongoose.Schema({
       visits: Number
     });
 
-mongoose.model('Link', linkSchema);
+ mongoose.model('Link', linkSchema);
 
+var Link = mongoose.model('Link', linkSchema);
+
+// Link.create({url: 'url', baseUrl: 'baseUrl', code: 'code', title: 'title', visits: 0}, function(err, link) {
+//   console.log('err', err, 'link', link);
+// });
 // module.exports = Link;
   // tableName: 'urls',
   // hasTimestamps: true,
@@ -26,4 +31,5 @@ mongoose.model('Link', linkSchema);
   //     model.set('code', shasum.digest('hex').slice(0, 5));
   //   });
   // }
+  console.log('inside link.js')
 module.exports = linkSchema
